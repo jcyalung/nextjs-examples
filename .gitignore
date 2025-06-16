@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# Temporary files
+*.log
+*.lock
+
+# Cache files
+.cache/
+
+# Package manager files
+yarn-error.log
+package-lock.json
+
+# IDE specific files
+.vscode
+.idea
