@@ -1,8 +1,10 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import axios, { AxiosError } from 'axios';
 export default function Home() {
-  
+  const [allData, setAllData] = useState([]);
+  const [showAllData, setShowAllData] = useState(false);
+
   const handleSaveData = async (event) => {
     event.preventDefault();
     const payload = {
@@ -22,10 +24,22 @@ export default function Home() {
     } 
   };
 
+  const fetchAllData = async () => {
+    const response = await fetch('/api/getAllData');
+    const resJson = await response.json();
+    if (response.ok) {
+      const data = resJson.data;
+      setAllData(data);
+      setShowAllData(true);
+      console.log(allData);
+    } else {
+      alert('Failed');
+    }
+  }
   
   return ( 
     <main>
-      <h1>Next.JS authentication JWT verify http cookie only</h1>
+      <h1>Saving data through mongodb</h1>
       <form onSubmit={handleSaveData} className="flex flex-col gap-4">
           <div>
             <input
@@ -52,6 +66,23 @@ export default function Home() {
             Submit
           </button>
       </form>
+      <button
+        onClick={fetchAllData}
+        className="p-2 bg-orange-600 text-white w-fit rounded"
+      >
+        Get All Data
+      </button>
+      {showAllData && (
+        <div>
+          <h2>All Data</h2>
+          <ul>
+              <li key='0'>username, password</li>
+            {allData.map((item) => (
+              <li key={item._id}>{item.username},  {item.password}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </main>
   ); 
 }
