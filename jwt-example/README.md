@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JSON Web Tokens Example
 
-## Getting Started
+## What are JSON Web Tokens?
+[JSON Web Tokens](https://en.wikipedia.org/wiki/JSON_Web_Token) is an Internet standard, allowing us to create data encrypted in a JSON format.
+<br>
+For the purpose of this example, we use a JSON Web Token to securely store a user's information and save it in a cookie to save a user's session.
+<br>
+If you want to learn how to code the whole website yourself, check out the video tutorial [here](https://www.youtube.com/watch?v=IUbNmsk9diY&t=1399s&ab_channel=Tenacity).
+<br>
+You may look through the code and run it yourself to see it in action.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Running the example
+The website requires a `.env` file for unique environment variables specific to this example.
+<br>
+To run the code, add a .env file to this folder with the following contents:
 ```
+JWT_SECRET=MY_TOKEN_SECRET
+NODE_ENV=development
+```
+The `JWT_SECRET` variable defines a secret that JWT uses to sign the token, encrypting it.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
