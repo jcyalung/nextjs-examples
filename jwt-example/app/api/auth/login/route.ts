@@ -1,8 +1,8 @@
+// file name must be named route.
 import { serialize } from "cookie";
 import { sign } from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { COOKIE_NAME, MAX_AGE } from "@/constants";
-// file name must be named route
 
 export async function POST(request: Request) {
     const body = await request.json();
