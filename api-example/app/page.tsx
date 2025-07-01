@@ -1,19 +1,9 @@
 "use client";
 import { useState } from 'react';
 import axios from 'axios';
-type Beer = {
-  id: number;
-  name: string;
-  price?: string;
-  rating?: {
-    average: number;
-    reviews: number;
-  };
-  image?: string;
-};
 
 export default function Home() {
-  const [apiData, setApiData] = useState<Beer[]>([]);
+  const [apiData, setApiData] = useState<any[]>([]);
   const [show, setShow] = useState(false);
   
   const handleClick = async (option : number) => {
@@ -22,6 +12,16 @@ export default function Home() {
       console.log(data);
       setApiData(data);
     }
+    else if(option === 1) {
+      const { data } = await axios.get('http://localhost:3000/api/getData');
+      console.log(data);
+      setApiData(data);
+    }
+    else if(option === 2) {
+      const { data } = await axios.post('http://localhost:3000/api/getData', {word:"hello!"});
+      console.log(data);
+      setApiData(data);
+    };
     setShow(true);
   }
   return (
@@ -40,6 +40,13 @@ export default function Home() {
             className="p-2 bg-orange-600 text-white w-fit rounded cursor-pointer"
           >
             Click me to test YOUR API
+          </button>
+          <button
+            onClick={() => {handleClick(2)}}
+            type="submit"
+            className="p-2 bg-orange-600 text-white w-fit rounded cursor-pointer"
+          >
+            Click me to test the POST request
           </button>
         <div>
           {show === true ? 

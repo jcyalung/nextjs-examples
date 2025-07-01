@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# api-example
 
-## Getting Started
+APIs are the backbone of pretty much every web application.
+Today we will learn how to write APIs using NextJS App Router.
 
-First, run the development server:
+## NextJS App Router
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The App Router allows to build applications flexibly using nested layouts and streaming rendering. <br>
+One of the benefits of App Router is allowing us to build API routes in their own nested layout, allowing for <br>
+smooth organization and route handlers. <br>
+<br>
+
+## Using App Router
+Usually, the link to an api call is as follows: `example.com/api/YourEndpoint`. <br>
+With NextJS, we can define these endpoints using a `route.ts/js` file in the `app` directory. We would define the example endpoint in a file stored at `api/YourEndpoint/route.ts`.
+<br><br>
+Then, in the `route.ts` file, you would define an API method as follows:
+```typescript
+// request parameter is optional
+export async function GET(request : Request) {
+    return NextResponse.json(/* your data here*/);
+}
+
+export async function POST(request : Request) {
+    return NextResponse.json(/* your data here*/);
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Your Turn
+For your turn, fill out the `route.ts` in the `api` folder to complete the `getData` endpoint. <br>
+Your task is to:
+- Complete the GET endpoint to return the data array.
+- Complete the POST endpoint to return the data array, modified by the word.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+When finished, send a pull request and I will verify your answer with a comment.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
