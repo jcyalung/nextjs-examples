@@ -20,5 +20,12 @@ export async function GET(request: Request) {
 //          variable. "Josh" -> "Joshvariable"
 export async function POST(request: Request) {
     // stub for the function to run
-    return NextResponse.json({});
+    const body = await request.json();
+    const word = body.word;
+
+    const modifiedData = data.map((item) => ({
+        name: item.name + word,
+    }));
+
+    return NextResponse.json(modifiedData, {status: 200});
 }
