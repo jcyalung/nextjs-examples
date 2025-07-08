@@ -10,7 +10,7 @@ const data = [
 // TODO: Complete this function to return the data variable, with a status code of 200
 export async function GET(request: Request) {
     // stub for the function to run
-    return NextResponse.json({});
+    return NextResponse.json(data, {status: 200});
 }
 
 
